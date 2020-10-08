@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>DevJane Portfolio Website</title>
+        <title>Thomas Caen Portfolio</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" integrity="sha256-46qynGAkLSFpVbEBog43gvNhfrOj+BmwXdxFgVK/Kvc=" crossorigin="anonymous" />  
         
@@ -15,9 +15,13 @@
     </head>
     <body>
         <header>
-            <div class="logo">
-                <img src="img/devjane.png" alt="">
-            </div>
+            <div class="clock">
+                <div class="clock-face">
+                  <div class="hand hour-hand"></div>
+                  <div class="hand min-hand"></div>
+                  <div class="hand second-hand"></div>
+                </div>
+              </div>
             <button class="nav-toggle" aria-label="toggle navigation">
                 <span class="hamburger"></span>
             </button>
@@ -56,7 +60,7 @@
                 </div> <!-- / service -->
                 
                 <div class="service">
-                    <h3>Game developer</h3>
+                    <h3>Game Developement</h3>
                     <p>Rencently i have being following an online course about unity and C# developement for video game, this is a field that i am passionate about so i have been working on it on my free time.</p>
                 </div> <!-- / service -->
             </div> <!-- / services -->
@@ -68,14 +72,14 @@
         <!-- About me -->
         <section class="about-me" id="about">
            <h2 class="section__title section__title--about">Who I am</h2>
-           <p class="section__subtitle section__subtitle--about">Designer & developer based out of NYC</p>
+           <p class="section__subtitle section__subtitle--about">Web developer from Paris </p>
            
            <div class="about-me__body">
-               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+               <p>.</p>
                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
            </div>
            
-           <img src="img/dev-jane-02.jpg" alt="Jane leaning against a bus" class="about-me__img">
+           <img src="img/Me.jpg" alt="Jane leaning against a bus" class="about-me__img">
         </section>
         
         <!-- My Work -->
@@ -91,7 +95,7 @@
                 
                 <!-- Portfolio item 02 -->
                 <a href="#" class="portfolio__item">
-                    <img src="img/portfolio-02.jpg" alt="" class="portfolio__img">
+                    <img src="img/clock.png" alt="" class="portfolio__img">
                 </a>
                 
                 <!-- Portfolio item 03 -->
@@ -155,5 +159,32 @@
             </ul>
         </footer>
         
+        <script src="js/index.js"></script>
+         <script>
+      const secondHand = document.querySelector('.second-hand');
+      const minHand = document.querySelector('.min-hand');
+      const hourHand = document.querySelector('.hour-hand');
+      function setDate () {
+          const now = new Date();
+          const seconds = now.getSeconds();
+          const secondDegrees = ((seconds / 60) * 360) + 90;
+
+          const minutes = now.getMinutes();
+          const minutesDegrees = ((minutes / 60) * 360)+ 90 ;
+          
+          const hours = now.getHours();
+          const hourDegrees = ((hours / 12) * 360) + 90 ;
+          
+          secondHand.style.transform = `rotate(${secondDegrees}deg)`;
+          minHand.style.transform = `rotate(${minutesDegrees}deg)`;
+          hourHand.style.transform = `rotate(${hourDegrees}deg`;
+
+          
+
+      }
+
+      setInterval(setDate, 1000);
+
+  </script>
     </body>
 </html>
